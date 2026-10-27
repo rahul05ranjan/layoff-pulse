@@ -1,0 +1,21 @@
+{
+  "name": "LayoffPulse — Verified Global Layoff Tracker",
+  "short_name": "LayoffPulse",
+  "description": "Real-time counter and verified archive of global layoffs from 2000 to 2026, backed by SEC 8-K filings and WARN notices.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#07090e",
+  "theme_color": "#07090e",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/og-image.png",
+      "sizes": "1200x630",
+      "type": "image/png"
+    }
+  ]
+}
