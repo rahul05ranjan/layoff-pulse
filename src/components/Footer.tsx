@@ -1,12 +1,13 @@
 import React from 'react';
-import { ShieldCheck, Zap, Github, Heart, Database, BookOpen, Sparkles, ExternalLink } from 'lucide-react';
+import { ShieldCheck, Zap, Database, BookOpen, Sparkles, ExternalLink } from 'lucide-react';
 import { POWERED_BY_CONFIG } from '../types';
 
 interface FooterProps {
   onOpenReportModal: () => void;
+  onOpenAlertModal?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenReportModal, onOpenAlertModal }) => {
   return (
     <footer className="border-t border-white/10 bg-slate-950 text-slate-400 py-16 px-4 sm:px-6 lg:px-8 mt-20">
       <div className="max-w-7xl mx-auto">
@@ -85,6 +86,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenReportModal }) => {
           </div>
 
           <div className="flex items-center gap-4 text-xs font-mono">
+            {onOpenAlertModal && (
+              <>
+                <button
+                  onClick={onOpenAlertModal}
+                  className="text-amber-400 hover:text-amber-300 transition-colors font-semibold"
+                >
+                  🔔 Layoff Alerts
+                </button>
+                <span>•</span>
+              </>
+            )}
             <button
               onClick={onOpenReportModal}
               className="text-red-400 hover:text-red-300 transition-colors font-semibold"

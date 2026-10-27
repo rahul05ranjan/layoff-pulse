@@ -163,23 +163,37 @@ export const ProofDetailModal: React.FC<ProofDetailModalProps> = ({ record, onCl
         </div>
 
         {/* Footer Actions */}
-        <div className="pt-4 border-t border-white/10 flex items-center justify-between gap-3">
-          <button
-            onClick={handleCopyCitation}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs sm:text-sm font-mono text-slate-300 hover:text-white transition-colors"
-          >
-            {copied ? (
-              <>
-                <Check className="w-4 h-4 text-emerald-400" />
-                <span>Citation Copied!</span>
-              </>
-            ) : (
-              <>
-                <Copy className="w-4 h-4" />
-                <span>Copy Verified Citation</span>
-              </>
-            )}
-          </button>
+        <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <button
+              onClick={handleCopyCitation}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs sm:text-sm font-mono text-slate-300 hover:text-white transition-colors"
+            >
+              {copied ? (
+                <>
+                  <Check className="w-4 h-4 text-emerald-400" />
+                  <span>Citation Copied!</span>
+                </>
+              ) : (
+                <>
+                  <Copy className="w-4 h-4" />
+                  <span>Copy Citation</span>
+                </>
+              )}
+            </button>
+
+            <button
+              onClick={() => {
+                const tweetText = `🚨 Verified Layoff: ${record.company} cut ${record.headcountCut.toLocaleString()} employees (${record.percentageCut ? record.percentageCut + '% of staff' : 'reported'}).\n\nFact-checked with SEC 8-K / WARN filings on @LayoffPulse:\nhttps://layoff-pulse.pages.dev`;
+                window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`, '_blank');
+              }}
+              className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-sky-500/10 hover:bg-sky-500/20 text-sky-400 border border-sky-500/30 text-xs sm:text-sm font-mono transition-colors"
+              title="Share verified dossier to Twitter / X"
+            >
+              <ExternalLink className="w-4 h-4" />
+              <span>Share on X</span>
+            </button>
+          </div>
 
           <button
             onClick={onClose}

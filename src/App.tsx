@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { LiveCounterHero } from './components/LiveCounterHero';
 import { EraShowcase } from './components/EraShowcase';
+import { HistoricalTimelineChart } from './components/HistoricalTimelineChart';
 import { GlobalImpactMap } from './components/GlobalImpactMap';
 import { HypocrisyMeter } from './components/HypocrisyMeter';
 import { AIForensicAnalyst } from './components/AIForensicAnalyst';
@@ -11,6 +12,7 @@ import { SeveranceCalculator } from './components/SeveranceCalculator';
 import { FAQSection } from './components/FAQSection';
 import { ProofDetailModal } from './components/ProofDetailModal';
 import { ReportLayoffModal } from './components/ReportLayoffModal';
+import { LayoffAlertModal } from './components/LayoffAlertModal';
 import { Footer } from './components/Footer';
 import { LAYOFFS_DATABASE } from './data/layoffsData';
 import { LayoffRecord, EraId } from './types';
@@ -24,6 +26,7 @@ export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [inspectedRecord, setInspectedRecord] = useState<LayoffRecord | null>(null);
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
+  const [isAlertModalOpen, setIsAlertModalOpen] = useState<boolean>(false);
 
   // Smooth scroll handler
   const handleNavigate = (sectionId: string) => {
@@ -85,10 +88,11 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-body selection:bg-red-500 selection:text-white">
+    <div className="min-h-screen bg-[#07090e] text-slate-100 flex flex-col font-body selection:bg-rose-500 selection:text-white">
       {/* Sticky Header */}
       <Header
         onOpenReportModal={() => setIsReportModalOpen(true)}
+        onOpenAlertModal={() => setIsAlertModalOpen(true)}
         activeSection={activeSection}
         onNavigate={handleNavigate}
       />
@@ -108,6 +112,9 @@ export const App: React.FC = () => {
           onSelectEra={setSelectedEra}
           onFilterArchiveByEra={handleFilterArchiveByEra}
         />
+
+        {/* 26-Year Historical Macro Layoff Curve (2000-2026) */}
+        <HistoricalTimelineChart onSelectEra={handleSelectEra} />
 
         {/* Worldwide Geographic Distribution Map & Regional Breakdown */}
         <GlobalImpactMap
@@ -143,7 +150,10 @@ export const App: React.FC = () => {
       </main>
 
       {/* Footer */}
-      <Footer onOpenReportModal={() => setIsReportModalOpen(true)} />
+      <Footer 
+        onOpenReportModal={() => setIsReportModalOpen(true)} 
+        onOpenAlertModal={() => setIsAlertModalOpen(true)}
+      />
 
       {/* Primary Evidence Modal */}
       <ProofDetailModal
@@ -156,6 +166,12 @@ export const App: React.FC = () => {
         isOpen={isReportModalOpen}
         onClose={() => setIsReportModalOpen(false)}
         onSubmitReport={handleAddReport}
+      />
+
+      {/* Weekly Early-Warning Alerts Modal */}
+      <LayoffAlertModal
+        isOpen={isAlertModalOpen}
+        onClose={() => setIsAlertModalOpen(false)}
       />
     </div>
   );

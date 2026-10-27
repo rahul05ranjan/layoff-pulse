@@ -1,14 +1,20 @@
 import React from 'react';
-import { ShieldAlert, TrendingDown, ExternalLink, Zap, Globe, Bot, Sparkles } from 'lucide-react';
+import { ShieldAlert, TrendingDown, ExternalLink, Zap, Globe, Bot, Sparkles, Bell, BarChart3 } from 'lucide-react';
 import { POWERED_BY_CONFIG } from '../types';
 
 interface HeaderProps {
   onOpenReportModal: () => void;
+  onOpenAlertModal: () => void;
   activeSection: string;
   onNavigate: (sectionId: string) => void;
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenReportModal, activeSection, onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({ 
+  onOpenReportModal, 
+  onOpenAlertModal, 
+  activeSection, 
+  onNavigate 
+}) => {
   return (
     <header className="sticky top-0 z-40 w-full backdrop-blur-xl bg-slate-950/80 border-b border-white/10 transition-all">
       {/* Top breaking news / live ticker banner */}
@@ -83,6 +89,15 @@ export const Header: React.FC<HeaderProps> = ({ onOpenReportModal, activeSection
             The 4 Eras
           </button>
           <button
+            onClick={() => onNavigate('timeline-chart')}
+            className={`px-3 py-1.5 rounded-lg transition-colors flex items-center gap-1 ${
+              activeSection === 'timeline-chart' ? 'bg-white/10 text-white' : 'hover:text-white hover:bg-white/5'
+            }`}
+          >
+            <BarChart3 className="w-3.5 h-3.5 text-rose-400" />
+            26-Yr Chart
+          </button>
+          <button
             onClick={() => onNavigate('global-scope')}
             className={`px-3 py-1.5 rounded-lg transition-colors ${
               activeSection === 'global-scope' ? 'bg-white/10 text-white' : 'hover:text-white hover:bg-white/5'
@@ -127,6 +142,16 @@ export const Header: React.FC<HeaderProps> = ({ onOpenReportModal, activeSection
 
         {/* Action buttons */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Get Alerts Button */}
+          <button
+            onClick={onOpenAlertModal}
+            className="flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 transition-all hover:text-white hover:border-white/20"
+            title="Subscribe for weekly early-warning layoff alerts"
+          >
+            <Bell className="w-3.5 h-3.5 text-amber-400" />
+            <span className="hidden sm:inline">Get Alerts</span>
+          </button>
+
           <button
             onClick={onOpenReportModal}
             className="flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white shadow-lg shadow-red-600/25 border border-red-400/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
