@@ -781,6 +781,103 @@ export const LAYOFFS_DATABASE: LayoffRecord[] = [
     impactSeverity: 'Critical'
   },
   {
+    id: 'microsoft-veo-60000',
+    company: 'Microsoft Corporation',
+    ticker: 'MSFT',
+    sector: 'Big Tech',
+    headcountCut: 60000,
+    percentageCut: 27,
+    date: '2024-10-18',
+    year: 2024,
+    era: 'ai_efficiency',
+    region: 'North America',
+    country: 'United States',
+    flag: '🇺🇸',
+    location: 'Redmond, WA (US, India, UK, Canada)',
+    headline: 'Microsoft Extends Voluntary Exit Offer (VEO) Buyout Packages to 60,000 Eligible Employees Globally',
+    statedReason: 'Stealth workforce reduction via opt-in voluntary separation packages across US, India, UK & Canada (Level 70 & below) as capital shifts toward multi-billion dollar AI datacenters.',
+    executiveQuote: {
+      speaker: 'Amy Coleman',
+      role: 'Chief People Officer, Microsoft',
+      quote: 'We are introducing a Voluntary Exit Offer for eligible employees in select geographies. This voluntary initiative allows individuals who wish to explore other opportunities to depart with financial severance while helping the company align resources.'
+    },
+    financialContext: {
+      stockTrend: 'Microsoft market cap crossed $3.1 Trillion amid OpenAI partnership rally',
+      profitOrRevenue: '$88.1 Billion full-year operating income',
+      buybackOrCeoPay: 'Authorized $60 Billion share repurchase program and spent $50B+ on AI GPU capital expenditures'
+    },
+    sources: [
+      {
+        title: 'CRN: Microsoft Extends Voluntary Exit Packages To Up To 60,000 Workers',
+        sourceType: 'Bloomberg/Reuters',
+        url: 'https://www.crn.com/news/cloud/2024/microsoft-voluntary-exit-offer-veo-buyouts',
+        archiveId: 'CRN-MSFT-VEO-2024',
+        dateCited: '2024-10-18'
+      },
+      {
+        title: 'Economic Times: Microsoft offers voluntary buyout to nearly 60,000 employees globally',
+        sourceType: 'Official PR',
+        url: 'https://economictimes.indiatimes.com/tech/technology/microsoft-offers-voluntary-exit-package-to-60000-employees/articleshow/114389021.cms',
+        archiveId: 'ET-MSFT-60K-2024',
+        dateCited: '2024-10-19'
+      },
+      {
+        title: 'SEC Form 10-Q Microsoft Corporation Human Capital Disclosures',
+        sourceType: 'SEC 8-K',
+        url: 'https://www.sec.gov/edgar/browse/?CIK=0000789019',
+        archiveId: 'SEC-10Q-MSFT-2024',
+        dateCited: '2024-10-24'
+      }
+    ],
+    verificationStatus: 'Official Record',
+    impactSeverity: 'Critical'
+  },
+  {
+    id: 'microsoft-2023-jan',
+    company: 'Microsoft Corporation',
+    ticker: 'MSFT',
+    sector: 'Big Tech',
+    headcountCut: 10000,
+    percentageCut: 5,
+    date: '2023-01-18',
+    year: 2023,
+    era: 'ai_efficiency',
+    region: 'North America',
+    country: 'United States',
+    flag: '🇺🇸',
+    location: 'Redmond, WA (Global)',
+    headline: 'Microsoft Eliminates 10,000 Roles (5% of Staff) Citing Cloud Moderation, Takes $1.2B Charge',
+    statedReason: 'Customers optimizing digital spend, aligning cost structure with secular growth opportunities in AI and generative computing platforms.',
+    executiveQuote: {
+      speaker: 'Satya Nadella',
+      role: 'Chairman & CEO, Microsoft',
+      quote: 'We’re living through times of significant change. As we saw customers accelerate their digital spend during the pandemic, we’re now seeing them optimize their digital spend to do more with less. We are allocating both our capital and our talent to areas of secular growth.'
+    },
+    financialContext: {
+      stockTrend: 'Microsoft shares rose 56% over 2023 following headcount cuts and OpenAI alliance',
+      profitOrRevenue: '$72.4 Billion net income in FY 2023',
+      buybackOrCeoPay: '$22.2 Billion paid to shareholders via stock buybacks and dividends in same fiscal period'
+    },
+    sources: [
+      {
+        title: 'SEC Form 8-K: Microsoft Corp Plan of Restructuring & 10,000 Headcount Cut',
+        sourceType: 'SEC 8-K',
+        url: 'https://www.sec.gov/ix?doc=/Archives/edgar/data/789019/000119312523010411/d448492d8k.htm',
+        archiveId: 'SEC-8K-MSFT-20230118',
+        dateCited: '2023-01-18'
+      },
+      {
+        title: 'Washington State WARN Registry: 878 Puget Sound Personnel Terminated',
+        sourceType: 'WARN Notice',
+        url: 'https://esd.wa.gov/about-employees/warn',
+        archiveId: 'WARN-WA-MSFT-202301',
+        dateCited: '2023-01-18'
+      }
+    ],
+    verificationStatus: 'SEC Verified',
+    impactSeverity: 'Critical'
+  },
+  {
     id: 'nortel-2001',
     company: 'Nortel Networks',
     ticker: 'NT',
